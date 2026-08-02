@@ -8,7 +8,7 @@ def solution(m1, d1, m2, d2, A):
 
     diff = get_days(m2, d2) - get_days(m1, d1)
 
-    return diff // 7 + 1 if diff % 7 <= dom.index(A) else diff // 7
+    return diff // 7 + 1 if dom.index(A) <= diff % 7 else diff // 7
 
 m1, d1, m2, d2 = map(int, input().split())
 A = input().rstrip()
