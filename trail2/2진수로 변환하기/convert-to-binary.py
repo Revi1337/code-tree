@@ -1,4 +1,6 @@
 def solution(n):
+    if not n:
+        return 0
     ans = []
     while n != 0:
         ans.append(n % 2)
