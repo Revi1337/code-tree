@@ -1,5 +1,5 @@
 def solution(A, B, N):
-    N, cost = str(N), 0
+    N, cost = str(N)[::-1], 0
     for idx in range(len(N)):
         if int(N[idx]):
             cost += int(N[idx]) * A ** idx
