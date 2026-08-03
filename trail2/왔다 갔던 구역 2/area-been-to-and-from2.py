@@ -3,14 +3,18 @@ def solution(n, segments):
     curr = (100 * 10 * 2) // 2
     for dist, dir in segments:
         dist = int(dist)
+        mv = curr
         if dir == 'L':
             for v in range(curr, curr - dist, -1):
                 arr[v] += 1
+                mv -= 1
         else:
             for v in range(curr, curr + dist):
                 arr[v] += 1
+                mv += 1
+        curr = mv
 
-    return max(arr)
+    return len([cnt for cnt in arr if cnt >= 2])
 
 n = int(input())
 segments = [list(input().split()) for _ in range(n)]
