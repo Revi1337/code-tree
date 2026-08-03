@@ -4,7 +4,7 @@ def solution(n, segments):
     for dist, dir in segments:
         dist = int(dist)
         if dir == 'L':
-            for v in range(curr, curr - dist, -1):
+            for v in range(curr - dist, curr):
                 arr[v] += 1
             curr -= dist
         else:
