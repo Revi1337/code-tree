@@ -7,7 +7,8 @@ def solution(N, arr):
         else:
             ans = max(ans, curr)
             curr = 1
-    return ans
+
+    return max(ans, curr)
         
 N = int(input())
 arr = [int(input()) for _ in range(N)]
