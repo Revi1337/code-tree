@@ -1,12 +1,12 @@
 def solution(N, arr):
     ans = 1
-    length = 1
-    for idx in range(N):
-        if idx == 0 or arr[idx - 1] != arr[idx]:
-            ans = max(ans, length)
-            length = 1  
+    curr = 1
+    for idx in range(1, N):
+        if arr[idx] == arr[idx - 1]:
+            curr += 1
         else:
-            length += 1
+            ans = max(ans, curr)
+            curr = 1
     return ans
         
 N = int(input())
