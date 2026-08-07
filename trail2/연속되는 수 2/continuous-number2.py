@@ -1,5 +1,5 @@
 def solution(N, arr):
-    ans = 0
+    ans = 1
     length = 1
     for idx in range(N):
         if idx == 0 or arr[idx - 1] != arr[idx]:
