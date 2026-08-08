@@ -47,7 +47,7 @@ def solution(n, m, A, B):
             arr2[t] = arr2[mnt]
 
     ans = 0
-    for t in range(1, mxt + 1):
+    for t in range(mxt + 1):
         if arr1[t][0] == arr2[t][0] and arr1[t][1] != arr2[t][1]:
             ans += 1
 
