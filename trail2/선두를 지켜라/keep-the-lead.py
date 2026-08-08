@@ -23,7 +23,7 @@ def solution(n, m, A, B):
 
     ans = 0
     for t in range(1, len(diffs)):
-        if not ((diffs[t] > 0 and diffs[t - 1] > 0) or (diffs[t] < 0 and diffs[t - 1] < 0)):
+        if (diffs[t] > 0 and diffs[t - 1] < 0) or (diffs[t] < 0 and diffs[t - 1] > 0):
             ans += 1
     return ans
 
