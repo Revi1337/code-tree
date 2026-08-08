@@ -39,15 +39,16 @@ def solution(n, m, A, B):
                 arr2[ct][0] = cd
                 arr2[ct][1] = arr2[ct - 1][0]
 
-    if arr1[mxt] == [0, 0]:
-        for t in range(mnt, mxt + 1):
-            arr1[t] = arr1[mnt]
-    elif arr2[mxt] == [0, 0]:
-        for t in range(mnt, mxt + 1):
-            arr2[t] = arr2[mnt]
+    if atsm < mxt:
+        for t in range(atsm + 1, mxt + 1):
+            arr1[t] = [arr1[atsm][0], arr1[atsm][0]]
+
+    if btsm < mxt:
+        for t in range(btsm + 1, mxt + 1):
+            arr2[t] = [arr2[btsm][0], arr2[btsm][0]]
 
     ans = 0
-    for t in range(mxt + 1):
+    for t in range(1, mxt + 1):
         if arr1[t][0] == arr2[t][0] and arr1[t][1] != arr2[t][1]:
             ans += 1
 
