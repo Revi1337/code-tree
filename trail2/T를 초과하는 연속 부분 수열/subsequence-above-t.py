@@ -1,12 +1,12 @@
 def solution(N, T, arr):
-    ans = curr = 1 if arr[0] > T else 0
-    for idx in range(1, N):
-        if arr[idx] > T and arr[idx - 1] > T:
+    ans = curr = 0
+    for x in arr:
+        if x > T:
             curr += 1
-        else:
             ans = max(ans, curr)
-            curr = 0 if arr[idx] > T else 0
-    return max(ans, curr)
+        else:
+            curr = 0
+    return ans
 
 N, T = map(int, input().split())
 arr = list(map(int, input().split()))
