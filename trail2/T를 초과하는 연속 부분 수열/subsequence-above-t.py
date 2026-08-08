@@ -5,7 +5,7 @@ def solution(N, T, arr):
             curr += 1
         else:
             ans = max(ans, curr)
-            curr = 0
+            curr = 0 if arr[idx] > T else 0
     return max(ans, curr)
 
 N, T = map(int, input().split())
