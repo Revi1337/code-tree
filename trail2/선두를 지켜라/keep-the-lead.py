@@ -1,5 +1,5 @@
 def solution(n, m, A, B):
-    arr1, arr2 = [[0] * 1001 for _ in range(2)]
+    arr1, arr2 = [[0] * 1_000_001 for _ in range(2)]
 
     ct = cv = 0
     for v, t in A:
