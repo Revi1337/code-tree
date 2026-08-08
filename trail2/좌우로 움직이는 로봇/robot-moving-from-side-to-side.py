@@ -1,55 +1,30 @@
 def solution(n, m, A, B):
-    atsm, btsm = sum(int(t) for t, _ in A), sum(int(t) for t, _ in B)
-    mnt, mxt = min(atsm, btsm), max(atsm, btsm)
-    arr1, arr2 = [[[0, 0] for _ in range(mxt + 1)] for _ in range(2)]
+    arr1, arr2 = [0], [0]
 
-    ct = cd = 0
     for t, d in A:
         t = int(t)
-        if d == 'R':
-            while t > 0:
-                t -= 1
-                ct += 1
-                cd += 1
-                arr1[ct][0] = cd
-                arr1[ct][1] = arr1[ct - 1][0]
-        else:
-            while t > 0:
-                t -= 1
-                ct += 1
-                cd -= 1
-                arr1[ct][0] = cd
-                arr1[ct][1] = arr1[ct - 1][0]
+        move = 1 if d == 'R' else -1
+        for _ in range(t):
+            arr1.append(arr1[-1] + move)
 
-    ct = cd = 0
     for t, d in B:
         t = int(t)
-        if d == 'R':
-            while t > 0:
-                t -= 1
-                ct += 1
-                cd += 1
-                arr2[ct][0] = cd
-                arr2[ct][1] = arr2[ct - 1][0]
-        else:
-            while t > 0:
-                t -= 1
-                ct += 1
-                cd -= 1
-                arr2[ct][0] = cd
-                arr2[ct][1] = arr2[ct - 1][0]
+        move = 1 if d == 'R' else -1
+        for _ in range(t):
+            arr2.append(arr2[-1] + move)
 
-    if atsm < mxt:
-        for t in range(atsm + 1, mxt + 1):
-            arr1[t] = [arr1[atsm][0], arr1[atsm][0]]
+    ta = len(arr1) - 1
+    tb = len(arr2) - 1
+    mxt = max(ta, tb)
 
-    if btsm < mxt:
-        for t in range(btsm + 1, mxt + 1):
-            arr2[t] = [arr2[btsm][0], arr2[btsm][0]]
+    while len(arr1) < mxt + 1:
+        arr1.append(arr1[-1])
+    while len(arr2) < mxt + 1:
+        arr2.append(arr2[-1])
 
     ans = 0
     for t in range(1, mxt + 1):
-        if arr1[t][0] == arr2[t][0] and arr1[t][1] != arr2[t][1]:
+        if arr1[t] == arr2[t] and arr1[t - 1] != arr2[t - 1]:
             ans += 1
 
     return ans
