@@ -5,6 +5,7 @@ def solution(n, m, k, arr):
         for idx in range(n + 1):
             if ans[idx] == k:
                 return idx
+    return -1
 
 n, m, k = map(int, input().split())
 arr = [int(input()) for _ in range(m)]
