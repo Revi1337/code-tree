@@ -1,11 +1,17 @@
 def solution(n, k, p, t, arr):
-    cnts, ans = [k] * (n + 1), [0] * (n + 1)
+    cnts, ans = [[0] * (n + 1) for _ in range(2)]
     arr.sort(key=lambda x: x[0])
-    ans[p] = 1
+    cnts[p], ans[p] = k, 1
+
     for _, x, y in arr:
-        if cnts[x] and cnts[y]:
-            cnts[x], cnts[y] = cnts[x] - 1, cnts[y] - 1
-            ans[x] = ans[y] = 1
+        if ans[x] and cnts[x] > 0:
+            cnts[x] -= 1
+            if not ans[y]:
+                cnts[y], ans[y] = k, 1
+        if ans[y] and cnts[y] > 0:
+            cnts[y] -= 1
+            if not ans[x]:
+                cnts[x], ans[x] = k, 1
 
     return ''.join(map(str, ans[1:]))
 
