@@ -4,13 +4,14 @@ def solution(n, k, p, t, arr):
     cnts[p], ans[p] = k, 1
 
     for _, x, y in arr:
-        if ans[x] and cnts[x] > 0:
+        xinf, yinf = ans[x], ans[y]
+        if xinf and cnts[x] > 0:
             cnts[x] -= 1
-            if not ans[y]:
+            if not yinf:
                 cnts[y], ans[y] = k, 1
-        if ans[y] and cnts[y] > 0:
+        if yinf and cnts[y] > 0:
             cnts[y] -= 1
-            if not ans[x]:
+            if not xinf:
                 cnts[x], ans[x] = k, 1
 
     return ''.join(map(str, ans[1:]))
