@@ -23,7 +23,7 @@ def solution(N, grid, K):
 
     dd = [2, 3, 0, 1] # base on drow & dcol
     row, col = edges[K - 1]
-    d = dd[(K - 1)// 4]
+    d = dd[(K - 1) // N]
     d = dat[grid[row][col]][d]
 
     ans = 1
