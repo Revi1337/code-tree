@@ -1,6 +1,6 @@
 drow = [-1, 0, 1, 0]
 dcol = [0, 1, 0, -1]
-dat = {'U': 0, 'L': 1, 'D': 2, 'R': 3}
+dat = {'U': 0, 'R': 1, 'D': 2, 'L': 3}
 
 def solution(N, T, R, C, D):
 
@@ -21,4 +21,3 @@ def solution(N, T, R, C, D):
 N, T = map(int, input().rstrip().split())
 R, C, D = input().rstrip().split()
 solution(N, T, R, C, D)
-
